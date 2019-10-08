@@ -1,12 +1,12 @@
 # DNS-Testing-Script
 
-This repository contains a simple script to test DNS monitoring solutions. It is written as a single PowerShell script so it can be easily uploaded and run (as opposed to un-zipped, compiled and installed). The script can run as a normal user and does not need any extra privilages.
+This repository contains a simple script to test DNS monitoring solutions. It is written as a single PowerShell script so it can be easily uploaded and run (as opposed to un-zipped, compiled and installed). The script can run as a normal user and does not need any extra privilages other than having PowerShell enabled.
 
 Right now this script only works on Windows and should work with most security endpoint solutions.
 
 **How To**
 
-Run the [runtests](runtests.bat) script and observe alerts coming to your console. Cross-verify these alerts to check how many are identified correctly. All of the domains used in repositories are known to be malicious with exception of top 1m sites used for some extra traffic generation. DO NOT USE THIS SCRIPTS ON PRODUCTION SYSTEMS, INSTEAD DEPLOY THIS IN A VM WHICH IS MONITORED BY DNS MONITORING SOLUTION.  
+Run the [runtests](runtests.bat) script and observe alerts coming to your console. Cross-verify these alerts to check how many malicious DNS calls are identified correctly. All of the domains used in repositories are known to be malicious with exception of top 1m sites used for some extra traffic generation. DO NOT USE THIS SCRIPTS ON PRODUCTION SYSTEMS, INSTEAD DEPLOY THIS IN A VM WHICH IS MONITORED BY DNS MONITORING SOLUTION.  
 
 **Why**
 
