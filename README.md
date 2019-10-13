@@ -1,11 +1,18 @@
 # DNS-Testing-Script
 
-This repository contains a PowerShell-based tool, which can be used to test DNS monitoring solutions for correct detection of malicious DNS name resolutions. This tool is written as a single script, so it can be easily uploaded and run (as opposed to un-zipped, compiled and installed). The script can run as a normal user and does not need any extra privileges other than having PowerShell enabled. It will use the default DNS Server, or an alternative DNS Server can be specified via the **-dnsserver** parameter. 
+This repository contains a PowerShell-based tool, which can be used to test DNS monitoring solutions for correct detection of malicious DNS name resolutions. This tool is written as a single script, so it can be easily uploaded and run (as opposed to un-zipped, compiled and installed). The script can run as a normal user and does not need any extra privileges other than having PowerShell enabled. It will use the default DNS Server, or an alternative which can be specified via the **-dnsserver** parameter. 
 
 
 **How To**
 
 Run the [test-edr-dns.ps1](test-edr-dns.ps1) script and observe alerts coming to DNS monitoring console. Cross-verify these alerts to check how many malicious DNS calls are identified correctly. All of the downloaded repositories are marked as malicious or phishing or malware (reference list below). DO NOT USE THIS SCRIPTS ON PRODUCTION SYSTEMS, INSTEAD DEPLOY THIS IN A VM WHICH IS MONITORED BY DNS MONITORING AND FILTERING SOLUTION.  
+
+**Help**
+```
+Usage: powershell -nop -exec bypass .\test-edr-dns.ps1 
+-dnsserver Specify DNS server to use for lookups (i.e. 8.8.8.8). Optional.
+-help   Show this help
+```
 
 **Weaponization** 
 
