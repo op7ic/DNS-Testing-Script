@@ -14,6 +14,7 @@ VERSION      DATE          AUTHOR
 
 function help{
 Write-Host @"
+test-edr-dns.ps1 by op7ic
 Usage: powershell -nop -exec bypass .\test-edr-dns.ps1 
 -dnsserver Specify DNS server to use for lookups (i.e. 8.8.8.8). Optional
 -help   Show this help

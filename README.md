@@ -43,7 +43,7 @@ For each domain name from above list a simple nslookup is executed. If nslookup 
 
 **Expected Outcome**
 
-DNS resolution to malware domains should be blocked. Following this example, if 44223 malware domains are looked up and there are 44223 alerts in your tool then coverage is 100%.
+DNS resolution to malware domains should be blocked. Following this example, if 44223 malware domains are looked up and there are 44223 alerts in your tool then coverage is **100%**.
 
 **Sinkholed traffic**
 
@@ -51,3 +51,7 @@ If an IP is resolved to sinkholed ranges this is good. For example, any domain r
 
 https://bgp.he.net/search?search%5Bsearch%5D=OpenDNS&commit=Search
 
+# TODO
+- [ ] Improve output method
+- [ ] Improve performance to do multiple lookups at the same time
+- [ ] Code improvements. This is just POC tool for now
