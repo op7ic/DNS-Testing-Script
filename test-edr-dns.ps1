@@ -30,10 +30,10 @@ $fail = 0
 foreach ($mal in $arrayToResolve){
 try{
 if ($dnsserver){
-$obj=(Resolve-DnsName -NoHostsFile -Name $mal -DnsOnly -Server $dnsserver -ErrorAction Stop) | Out-Null
+$obj=Resolve-DnsName -NoHostsFile -Name $mal -DnsOnly -Server $dnsserver -ErrorAction Stop
 Write-Host "[!] $mal resolves as " $obj.IPAddress
 }else{
-$obj=(Resolve-DnsName -NoHostsFile -Name $mal -DnsOnly -ErrorAction Stop) | Out-Null
+$obj=Resolve-DnsName -NoHostsFile -Name $mal -DnsOnly -ErrorAction Stop
 Write-Host "[!] $mal resolves as " $obj.IPAddress
 }
 $success += 1
