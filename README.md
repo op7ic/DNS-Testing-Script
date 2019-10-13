@@ -1,11 +1,11 @@
 # DNS-Testing-Script
 
-This repository contains PowerShell-based tool which can be used to test DNS monitoring solutions for correct detection of malicious DNS name resolutions. This tool is written as a single script so it can be easily uploaded and run (as opposed to un-zipped, compiled and installed). The script can run as a normal user and does not need any extra privileges other than having PowerShell enabled. It will use default DNS Server to test malware resolutions. Alternative DNS Server can be specified via **-dnsserver** parameter. 
+This repository contains a PowerShell-based tool, which can be used to test DNS monitoring solutions for correct detection of malicious DNS name resolutions. This tool is written as a single script, so it can be easily uploaded and run (as opposed to un-zipped, compiled and installed). The script can run as a normal user and does not need any extra privileges other than having PowerShell enabled. It will use the default DNS Server, or an alternative DNS Server can be specified via the **-dnsserver** parameter. 
 
 
 **How To**
 
-Run the [test-edr-dns.ps1](test-edr-dns.ps1) script and observe alerts coming to DNS monitoring console. Cross-verify these alerts to check how many malicious DNS calls are identified correctly. All of the domains used in repositories are marked as malicious or phishing or malware (reference list below). DO NOT USE THIS SCRIPTS ON PRODUCTION SYSTEMS, INSTEAD DEPLOY THIS IN A VM WHICH IS MONITORED BY DNS MONITORING AND FILTERING SOLUTION.  
+Run the [test-edr-dns.ps1](test-edr-dns.ps1) script and observe alerts coming to DNS monitoring console. Cross-verify these alerts to check how many malicious DNS calls are identified correctly. All of the downloaded repositories are marked as malicious or phishing or malware (reference list below). DO NOT USE THIS SCRIPTS ON PRODUCTION SYSTEMS, INSTEAD DEPLOY THIS IN A VM WHICH IS MONITORED BY DNS MONITORING AND FILTERING SOLUTION.  
 
 **Weaponization** 
 
@@ -38,7 +38,7 @@ DNS resolution to malware domains should be blocked. Following this example, if 
 
 **Sinkholed traffic**
 
-If an IP is resolved correctly but to sinkholed range this is good. For example, any domain resolved to an IP from the following range could be simply sinkholed:
+If an IP is resolved correctly but to sinkholed range this is good. For example, any domain resolved to an IP from the following range could be simply sinkholed by OpenDNS:
 
 https://bgp.he.net/search?search%5Bsearch%5D=OpenDNS&commit=Search
 
