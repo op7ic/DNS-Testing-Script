@@ -21,20 +21,21 @@ None - this script will simply lookup known bad DNS domain names.
 
 The following DNS repositories are downloaded and used: 
 
-* https://www.malwaredomainlist.com/hostslist/hosts.txt 
-* https://ransomwaretracker.abuse.ch/downloads/RW_DOMBL.txt
-* https://isc.sans.edu/feeds/suspiciousdomains_High.txt
-* https://www.dshield.org/feeds/suspiciousdomains_Medium.txt
-* https://s3.amazonaws.com/lists.disconnect.me/simple_malvertising.txt
-* http://mirror1.malwaredomains.com/files/domains.txt
+| URL | Source | 
+| https://www.malwaredomainlist.com/hostslist/hosts.txt | MalwareDomainList | 
+| https://ransomwaretracker.abuse.ch/downloads/RW_DOMBL.txt | Abuse.ch |
+| https://isc.sans.edu/feeds/suspiciousdomains_High.txt | SANS | 
+| https://www.dshield.org/feeds/suspiciousdomains_Medium.txt | DSHIELD | 
+| https://s3.amazonaws.com/lists.disconnect.me/simple_malvertising.txt | disconnect.me | 
+| http://mirror1.malwaredomains.com/files/domains.txt | malwaredomains.com | 
 
 **Process** 
 
-For each domain name from above list a simple nslookup is executed. If nslookup fails this mean that DNS block was successful. 
+For each domain name from above list a simple nslookup is executed. If nslookup fails this mean that DNS block was successful. If nslookup shows IP address from sinkholed ranges this is considered as successful block too.
 
 **Expected Outcome**
 
-DNS resolution to malware domains should be blocked. Following this example, if 44223 malware domains are looked up and there are 44223 alerts then coverage is 100%.
+DNS resolution to malware domains should be blocked. Following this example, if 44223 malware domains are looked up and there are 44223 alerts in your tool then coverage is 100%.
 
 **Sinkholed traffic**
 
