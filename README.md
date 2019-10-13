@@ -22,6 +22,7 @@ None - this script will simply lookup known bad DNS domain names.
 The following DNS repositories are downloaded and used: 
 
 | URL | Source | 
+| ------------- | ------------- |
 | https://www.malwaredomainlist.com/hostslist/hosts.txt | MalwareDomainList | 
 | https://ransomwaretracker.abuse.ch/downloads/RW_DOMBL.txt | Abuse.ch |
 | https://isc.sans.edu/feeds/suspiciousdomains_High.txt | SANS | 
