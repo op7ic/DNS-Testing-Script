@@ -36,3 +36,10 @@ For each domain name from above list a simple nslookup is executed. If nslookup 
 **Expected Outcome**
 
 DNS resolution to malware domains should be blocked.
+
+**Sinkholed traffic**
+
+If an IP is resolved correctly but to sinkholed range this is good. For example, any IP resolved to the following range could be simply sinkholed:
+
+https://bgp.he.net/search?search%5Bsearch%5D=OpenDNS&commit=Search
+
