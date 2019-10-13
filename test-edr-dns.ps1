@@ -73,7 +73,7 @@ foreach ($url in $data){
 	 (New-Object System.Net.WebClient).DownloadFile($url, "$unpackdirectory\$basename")
 	 Write-Host "[+] Downloading $url to $unpackdirectory\$basename"
 	 cleanDownload("$unpackdirectory\$basename")
-	 }elseif([System.Environment]::OSVersion.Platform -Like "*nix"){
+	 }elseif([System.Environment]::OSVersion.Platform -like "*nix"){
 	 (New-Object System.Net.WebClient).DownloadFile($url, "$unpackdirectory/$basename")
 	 Write-Host "[+] Downloading $url to $unpackdirectory/$basename"
 	 cleanDownload("$unpackdirectory/$basename")
