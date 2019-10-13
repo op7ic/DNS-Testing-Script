@@ -6,7 +6,7 @@ VERSION      DATE          AUTHOR
 
 <#
   .SYNOPSIS
-    This script downloads malicious domains from public repositories and executes nslookup against these domaions with default DNS server.
+    This script downloads malicious domains from public repositories and executes nslookup against them using either default or specified DNS server.
 	Run script as "powershell -nop -exec bypass .\test-edr-dns.ps1 -dnsserver <IP>"
   .EXAMPLE
     test-edr-dns.ps1
@@ -15,7 +15,7 @@ VERSION      DATE          AUTHOR
 function help{
 Write-Host @"
 Usage: powershell -nop -exec bypass .\test-edr-dns.ps1 
--dnsserver Specify DNS server to use for lookups (i.e. 208.67.222.222). Optional
+-dnsserver Specify DNS server to use for lookups (i.e. 8.8.8.8). Optional
 -help   Show this help
 "@
 }
