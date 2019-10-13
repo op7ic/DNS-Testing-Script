@@ -40,7 +40,7 @@ DNS resolution to malware domains should be blocked. Following this example, if 
 
 **Sinkholed traffic**
 
-If an IP is resolved correctly but to sinkholed range this is good. For example, any domain resolved to an IP from the following range could be simply sinkholed by OpenDNS:
+If an IP is resolved to sinkholed ranges this is good. For example, any domain resolved to an IP from the following range could be simply sinkholed by OpenDNS:
 
 https://bgp.he.net/search?search%5Bsearch%5D=OpenDNS&commit=Search
 
