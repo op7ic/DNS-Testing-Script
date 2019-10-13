@@ -88,7 +88,7 @@ foreach ($url in $data){
 }
 
 Write-Host "[+] Total number of records: " $DNSNames.Count
-resolveMalwareDNS($DNSNames,$dnsserver)
+resolveMalwareDNS $DNSNames $dnsserver
 Write-Host "[+] Removing output folder: $unpackdirectory"
 Remove-Item $unpackdirectory -Recurse -Force
 }
