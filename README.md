@@ -34,7 +34,7 @@ For each domain name from above list a simple nslookup is executed. If nslookup 
 
 **Expected Outcome**
 
-DNS resolution to malware domains should be blocked.
+DNS resolution to malware domains should be blocked. Following this example, if 44223 malware domains are looked up and there are 44223 alerts then coverage is 100%.
 
 **Sinkholed traffic**
 
