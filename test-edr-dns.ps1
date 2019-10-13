@@ -55,7 +55,11 @@ function downloadCombine($dnsserver){
 #"https://www.dshield.org/feeds/suspiciousdomains_Medium.txt",
 #"https://s3.amazonaws.com/lists.disconnect.me/simple_malvertising.txt"
 # http://mirror1.malwaredomains.com/files/domains.txt
-$unpackdirectory = (Convert-Path .) + "\malwarednsrecord"	
+if([System.Environment]::OSVersion.Platform -like "*Win*"){
+$unpackdirectory = (Convert-Path .) + "\malwarednsrecord\"
+}else{
+$unpackdirectory = (Convert-Path .) + "/malwarednsrecord/"
+}	
 checkPath	
 $data = @(
 "https://www.malwaredomainlist.com/hostslist/hosts.txt",
@@ -73,20 +77,20 @@ foreach ($url in $data){
 	 (New-Object System.Net.WebClient).DownloadFile($url, "$unpackdirectory\$basename")
 	 Write-Host "[+] Downloading $url to $unpackdirectory\$basename"
 	 cleanDownload("$unpackdirectory\$basename")
-	 }elseif([System.Environment]::OSVersion.Platform -like "*nix"){
+	 }elseif([System.Environment]::OSVersion.Platform -like "Unix"){
 	 (New-Object System.Net.WebClient).DownloadFile($url, "$unpackdirectory/$basename")
 	 Write-Host "[+] Downloading $url to $unpackdirectory/$basename"
 	 cleanDownload("$unpackdirectory/$basename")
 	 }
      }catch{
-	 Write-Host "[+] Unable to download $url"
+	 Write-Host "[+] Unable to download $url to $unpackdirectory/$basename"
 	 }
 }
 
 Write-Host "[+] Total number of records: " $DNSNames.Count
 resolveMalwareDNS($DNSNames,$dnsserver)
 Write-Host "[+] Removing output folder: $unpackdirectory"
-rmdir $unpackdirectory
+Remove-Item $unpackdirectory -Recurse -Force
 }
 
 #Depending on file name use different ways to cleanup and extract domains
