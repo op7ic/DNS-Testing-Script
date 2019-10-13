@@ -69,9 +69,15 @@ $data = @(
 foreach ($url in $data){
      try{
 	 $basename = ($url -split "/")[-1]
+	 if([System.Environment]::OSVersion.Platform -like "*Win*"){
 	 (New-Object System.Net.WebClient).DownloadFile($url, "$unpackdirectory\$basename")
 	 Write-Host "[+] Downloading $url to $unpackdirectory\$basename"
 	 cleanDownload("$unpackdirectory\$basename")
+	 }elseif([System.Environment]::OSVersion.Platform -Like "*nix"){
+	 (New-Object System.Net.WebClient).DownloadFile($url, "$unpackdirectory/$basename")
+	 Write-Host "[+] Downloading $url to $unpackdirectory/$basename"
+	 cleanDownload("$unpackdirectory/$basename")
+	 }
      }catch{
 	 Write-Host "[+] Unable to download $url"
 	 }
@@ -86,28 +92,44 @@ rmdir $unpackdirectory
 #Depending on file name use different ways to cleanup and extract domains
 function cleanDownload($path){
 if($path -like "*domains.txt"){
+if((Test-Path $path)){
 $domainSource = Get-Content -Path $path | Where { $_ -notmatch "^#" -and $_ -notmatch "Site" -and $_ -notmatch "Malvertising list by Disconnect" -and $_ -notmatch "malware-check.disconnect.me" -and ($_ -notmatch "^\s+$") -and ($_.Length -gt 0) -and $_ -notmatch "localhost"}
 foreach ($line in $domainSource){
     $ob = $line -split '\s+|\t+'
     $DNSNames.Add($ob[1]) | Out-Null
 }
+}else{
+Write-Host "[-] Can't process DNS record files"
+}
 }elseif($path -like "*hosts.txt"){
+if((Test-Path $path)){
 $hostSource = Get-Content -Path $path | Where { $_ -notmatch "^#" -and $_ -notmatch "Site" -and $_ -notmatch "Malvertising list by Disconnect" -and $_ -notmatch "malware-check.disconnect.me" -and ($_ -notmatch "^\s+$") -and ($_.Length -gt 0) -and $_ -notmatch "localhost"}
 foreach ($line in $hostSource){
     $ob2 = $line.split(" ")
 	$DNSNames.Add($ob2[2]) | Out-Null
 }
 }else{
+Write-Host "[-] Can't process DNS record files"
+}
+}else{
+if((Test-Path $path)){
 $remaining = Get-Content -Path $path | Where { $_ -notmatch "^#" -and $_ -notmatch "Site" -and $_ -notmatch "Malvertising list by Disconnect" -and $_ -notmatch "malware-check.disconnect.me" -and ($_ -notmatch "^\s+$") -and ($_.Length -gt 0) -and $_ -notmatch "localhost"}
 foreach ($r in $remaining){
 	$DNSNames.Add($r) | Out-Null
+}
+}else{
+Write-Host "[-] Can't process DNS record files"
 }
 }
 }
 
 function checkPath(){
 #Harcode path for downloads of temp files
+if([System.Environment]::OSVersion.Platform -like "*Win*"){
 $unpackdirectory = (Convert-Path .) + "\malwarednsrecord\"
+}else{
+$unpackdirectory = (Convert-Path .) + "/malwarednsrecord/"
+}
 # Check if output directory exists. Powershell 2.0 unzip version
 if(!(Test-Path $unpackdirectory)){
 #If directory doesnt exist, create it
