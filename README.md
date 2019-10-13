@@ -56,3 +56,4 @@ https://bgp.he.net/search?search%5Bsearch%5D=OpenDNS&commit=Search
 - [ ] Improve output method
 - [ ] Improve performance to do multiple lookups at the same time
 - [ ] Code improvements. This is just POC tool for now
+- [ ] Python port
