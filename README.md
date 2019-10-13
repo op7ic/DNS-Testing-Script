@@ -9,6 +9,7 @@ Run the [test-edr-dns.ps1](test-edr-dns.ps1) script and observe alerts coming to
 
 **Help**
 ```
+test-edr-dns.ps1 by op7ic
 Usage: powershell -nop -exec bypass .\test-edr-dns.ps1 
 -dnsserver Specify DNS server to use for lookups (i.e. 8.8.8.8). Optional.
 -help   Show this help
