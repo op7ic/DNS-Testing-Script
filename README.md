@@ -108,7 +108,7 @@ The tool intelligently parses different feed formats:
 To ensure efficient testing while maintaining statistical validity:
 - Downloads all available threat feeds
 - Collects all unique domains across all sources
-- Uses Fisher-Yates shuffle algorithm for unbiased random selection
+- Randomly select 3000 domains
 - Tests 3000 domains as a representative sample
 - If fewer than 3000 domains are available, tests all domains
 
