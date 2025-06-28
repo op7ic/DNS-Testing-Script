@@ -15,6 +15,7 @@ A comprehensive PowerShell-based DNS security testing tool designed to validate 
 - **Comprehensive statistics** including effective block rates
 - **Security recommendations** based on test results
 - **UTC timestamps** - All times are recorded in UTC ISO 8601 format
+- **Fisher-Yates shuffle** used for random array choices based on downloaded domains
 
 ## How It Works
 
@@ -108,7 +109,7 @@ The tool intelligently parses different feed formats:
 To ensure efficient testing while maintaining statistical validity:
 - Downloads all available threat feeds
 - Collects all unique domains across all sources
-- Uses shuffle algorithm for unbiased random selection
+- Uses shuffle algorithm for unbiased random selection (Fisher-Yates)
 - Tests 3000 domains as a representative sample
 - If fewer than 3000 domains are available, tests all domains
 
