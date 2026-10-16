@@ -89,7 +89,7 @@ The tool downloads and tests domains from the following actively maintained sour
 
 | Source | Description | Format |
 |--------|-------------|--------|
-| ZoneFiles.io | Compromised domains database | Plain domains |
+| NetAPI | Compromised domains database (successor of ZoneFiles.io) | Plain domains |
 | RomainMarcoux | Curated malicious domains list | Plain domains (includes IDN) |
 | Botvrij.eu | IoC domain indicators | Plain domains |
 | OpenPhish | Phishing URLs feed | Full URLs (domains extracted) |
