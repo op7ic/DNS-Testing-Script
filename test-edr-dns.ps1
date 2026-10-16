@@ -77,6 +77,7 @@ $Script:ThreatSources = @{
     "botvrij.eu" = "http://www.botvrij.eu/data/ioclist.domain.raw"
     "openphish" = "https://raw.githubusercontent.com/openphish/public_feed/refs/heads/main/feed.txt"
     "Disconnect.me" = "https://s3.amazonaws.com/lists.disconnect.me/simple_malvertising.txt"
+    "netapi.com" = "https://netapi.com/zf-api/f/compromised/domains/live/"
 }
 
 # Known sinkhole IP ranges and addresses
@@ -311,7 +312,7 @@ function Parse-DomainList {
                 }
             }
             
-            "zonefiles.io" {
+            "netapi.com" {
                 # Plain domains, one per line
                 if ($line -match "^[^#\s][\w\.-]+\.\w+") {
                     $domain = $line.Trim()
